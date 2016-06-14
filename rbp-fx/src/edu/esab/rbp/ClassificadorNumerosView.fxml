@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="780.0" prefWidth="860.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esab.rbp.ClassificadorNumerosViewController">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="Classificador de Números Escritos à Mão" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Separator layoutX="14.0" layoutY="53.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0" />
+      <TextArea fx:id="imagemMnistTextArea" editable="false" layoutX="14.0" layoutY="91.0" prefHeight="360.0" prefWidth="360.0" text=" . . . . . . . . . . . . . . . . . . . . . . . . . . . .&#10; . . . . . . . . . . . . . . . . . . . . . . . . . . . .&#10; . . . . . . . . . . . . . . . . . . . . . . . . . . . .&#10; . . . . . . . . . . . . . . . . . . . . . . . . . . . .&#10; . . . . . . . . . . . . . . . . . . . . . . . . . . . .&#10; . . . . . . . . . . . . . . . . . . . . . . . . . . . .&#10; . . . . . . . . . . . . . . . . . . . . . . . . . . . .&#10; . . . . . . @ @ @ @ . . . . . . . . . . . . . . . . . .&#10; . . . . . . @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ . . . . . . .&#10; . . . . . . @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ . . . . . .&#10; . . . . . . . . . . . . @ . @ @ @ . . @ @ @ . . . . . .&#10; . . . . . . . . . . . . . . . . . . @ @ @ . . . . . . .&#10; . . . . . . . . . . . . . . . . . . @ @ @ . . . . . . .&#10; . . . . . . . . . . . . . . . . . @ @ @ . . . . . . . .&#10; . . . . . . . . . . . . . . . . . @ @ . . . . . . . . .&#10; . . . . . . . . . . . . . . . . @ @ @ . . . . . . . . .&#10; . . . . . . . . . . . . . . . . @ @ . . . . . . . . . .&#10; . . . . . . . . . . . . . . . @ @ @ . . . . . . . . . .&#10; . . . . . . . . . . . . . . @ @ @ . . . . . . . . . . .&#10; . . . . . . . . . . . . . . @ @ @ . . . . . . . . . . .&#10; . . . . . . . . . . . . . @ @ @ . . . . . . . . . . . .&#10; . . . . . . . . . . . . . @ @ @ . . . . . . . . . . . .&#10; . . . . . . . . . . . . @ @ @ . . . . . . . . . . . . .&#10; . . . . . . . . . . . @ @ @ . . . . . . . . . . . . . .&#10; . . . . . . . . . . . @ @ @ . . . . . . . . . . . . . .&#10; . . . . . . . . . . @ @ @ @ . . . . . . . . . . . . . .&#10; . . . . . . . . . . @ @ @ . . . . . . . . . . . . . . .&#10; . . . . . . . . . . . . . . . . . . . . . . . . . . . ." AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="70.0">
+         <font>
+            <Font name="Monospaced Regular" size="10.0" />
+         </font>
+      </TextArea>
+      <Label layoutX="440.0" layoutY="69.0" text="Treinamento" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="60.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Separator layoutX="423.0" layoutY="70.0" orientation="VERTICAL" prefHeight="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="385.0" AnchorPane.topAnchor="70.0" />
+      <Label layoutX="430.0" layoutY="112.0" text="Número de Imagens:" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="120.0" />
+      <Separator layoutX="440.0" layoutY="97.0" prefWidth="200.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="95.0" />
+      <Slider fx:id="numeroImagensTreinamentoSlider" blockIncrement="1000.0" layoutX="549.0" layoutY="112.0" majorTickUnit="1000.0" max="60000.0" minorTickCount="1" prefHeight="38.0" prefWidth="283.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="60000.0" AnchorPane.leftAnchor="520.0" AnchorPane.rightAnchor="115.0" AnchorPane.topAnchor="110.0" />
+      <Button defaultButton="true" layoutX="848.0" layoutY="106.0" mnemonicParsing="false" onAction="#treinarAction" prefWidth="80.0" text="Treinar" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="115.0" />
+      <ProgressBar fx:id="treinamentoProgressBar" layoutX="431.0" layoutY="165.0" prefHeight="18.0" prefWidth="481.0" progress="0.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="160.0" />
+      <ProgressBar fx:id="validacaoProgressBar" layoutX="424.0" layoutY="324.0" prefHeight="18.0" prefWidth="481.0" progress="0.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="330.0" />
+      <Button layoutX="841.0" layoutY="265.0" mnemonicParsing="false" onAction="#verificarAction" prefWidth="80.0" text="Verificar" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="285.0" />
+      <Slider fx:id="numeroImagensValidacaoSlider" blockIncrement="2000.0" layoutX="542.0" layoutY="271.0" majorTickUnit="2000.0" max="10000.0" minorTickCount="1" prefHeight="38.0" prefWidth="283.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="10000.0" AnchorPane.leftAnchor="520.0" AnchorPane.rightAnchor="110.0" AnchorPane.topAnchor="280.0" />
+      <Separator layoutX="433.0" layoutY="256.0" prefWidth="200.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="265.0" />
+      <Label layoutX="423.0" layoutY="271.0" text="Número de Imagens:" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="285.0" />
+      <Label layoutX="433.0" layoutY="228.0" text="Verificação" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="230.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="14.0" layoutY="445.0" mnemonicParsing="false" onAction="#imagemAnteriorAction" prefWidth="80.0" text="&lt; Anterior" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="450.0" />
+      <Button layoutX="290.0" layoutY="450.0" mnemonicParsing="false" onAction="#proximaImagemAction" prefWidth="80.0" text="Próximo &gt;" AnchorPane.leftAnchor="290.0" AnchorPane.topAnchor="450.0" />
+      <TextField fx:id="rotuloImagemTextField" editable="false" layoutX="116.0" layoutY="450.0" prefWidth="25.0" text="7" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="450.0" />
+      <GridPane alignment="CENTER" layoutX="14.0" layoutY="498.0" prefHeight="60.0" prefWidth="360.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="510.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <CheckBox fx:id="numero0CheckBox" alignment="CENTER" mnemonicParsing="false" text="0" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <CheckBox fx:id="numero1CheckBox" mnemonicParsing="false" text="1" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <CheckBox fx:id="numero2CheckBox" mnemonicParsing="false" text="2" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <CheckBox fx:id="numero3CheckBox" mnemonicParsing="false" text="3" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <CheckBox fx:id="numero4CheckBox" mnemonicParsing="false" text="4" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <CheckBox fx:id="numero5CheckBox" mnemonicParsing="false" text="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <CheckBox fx:id="numero6CheckBox" mnemonicParsing="false" text="6" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <CheckBox fx:id="numero7CheckBox" mnemonicParsing="false" selected="true" text="7" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <CheckBox fx:id="numero8CheckBox" mnemonicParsing="false" text="8" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <CheckBox fx:id="numero9CheckBox" mnemonicParsing="false" text="9" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+         </children>
+      </GridPane>
+      <VBox layoutX="401.0" layoutY="363.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="385.0">
+         <children>
+            <Separator prefHeight="20.0" prefWidth="200.0" />
+            <Label fx:id="taxaAcertoGeralLabel" text="Taxa de Acerto Geral: 0%">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Separator prefHeight="20.0" prefWidth="200.0" />
+            <Label text="Desempenho por Número:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="desempenho0Label" text="[0] -&gt; Taxa de Acerto: 0%" />
+            <Label fx:id="desempenho1Label" text="[1] -&gt; Taxa de Acerto: 0%" />
+            <Label fx:id="desempenho2Label" text="[2] -&gt; Taxa de Acerto: 0%" />
+            <Label fx:id="desempenho3Label" text="[3] -&gt; Taxa de Acerto: 0%" />
+            <Label fx:id="desempenho4Label" text="[4] -&gt; Taxa de Acerto: 0%" />
+            <Label fx:id="desempenho5Label" text="[5] -&gt; Taxa de Acerto: 0%" />
+            <Label fx:id="desempenho6Label" text="[6] -&gt; Taxa de Acerto: 0%" />
+            <Label fx:id="desempenho7Label" text="[7] -&gt; Taxa de Acerto: 0%" />
+            <Label fx:id="desempenho8Label" text="[8] -&gt; Taxa de Acerto: 0%" />
+            <Label fx:id="desempenho9Label" text="[9] -&gt; Taxa de Acerto: 0%" />
+         </children>
+      </VBox>
+      <Label layoutX="400.0" layoutY="725.0" text="* Taxa de Acerto = (Reconhecimento Correto + Não Reconhecimento Correto) / Número de Imagens" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="400.0">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="60.0" fitWidth="404.0" layoutX="14.0" layoutY="629.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
+         <image>
+            <Image url="@LogoEsab.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="statusTreinamentoLabel" layoutX="400.0" layoutY="193.0" text="Status:" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="185.0" />
+      <Label fx:id="statusVerificacaoLabel" layoutX="400.0" layoutY="348.0" text="Status:" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="355.0" />
+   </children>
+</AnchorPane>
